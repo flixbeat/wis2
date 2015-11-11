@@ -1,3 +1,3 @@
 # wis2
 
-yo
+yo commit
