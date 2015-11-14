@@ -32,6 +32,28 @@
 			}
 			return $success;
 		}
+		
+		public function searchByID($userID){
+			$success = false;
+			$qry = "SELECT * FROM tbl_userlogins WHERE user = $userID;";
+			$result = $this->con->query($qry);
+			if ($result){
+				//check if the resulting table is not empty
+				if ($result->num_rows>0) {
+					$success = true;
+					$row = $result->fetch_assoc();
+					$this->id = $row ['user'];
+					$this->username = $row ['username'];
+					$this->pwd = $row['pwd'];
+					$this->retries = $row['retries'];
+					$this->isLoggedIn = $row['is_loggedin'];
+					$this->userType = $row['user_type'];
+				}
+			}else{
+				$this->showError(3, 0);
+			}
+			return $success;
+		}
 
 		//check password
 		public function comparePassword($prPwd){
@@ -79,6 +101,22 @@
 				}
 			}else{
 				$this->showError(3, 0);
+			}
+		}
+		
+		public function loadFacultyLoads(){
+			$qry = "SELECT u.id,sub_code,sub_name FROM tbl_subjects s 
+			INNER JOIN tbl_course_offerings co ON co.subject = s.id
+			INNER JOIN tbl_faculty_loads fl ON fl.offering = co.id
+			INNER JOIN tbl_users u ON u.id = fl.faculty
+			WHERE u.id = $this->id;
+			";
+			$res = $this->con->query($qry);
+			while($row = $res->fetch_assoc()){
+				$id = $row['id'];
+				$subCode = $row['sub_code'];
+				$subName = $row['sub_name'];
+				echo "<option value = \"$id\">$subCode | $subName</option>";
 			}
 		}
 	}

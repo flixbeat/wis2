@@ -22,16 +22,8 @@
 					//unset all set error messages
 					unset($_SESSION['alert']);
 					//getMemtype to facilitate navigation
-					$memtype = $user->getMemtype();
-					if ($memtype == 1){
-						//proceed to initial student page
-						#goHomePage();
-						echo $user->pwd;
-					}else if ($memtype == 2) {
-						
-					}else if ($memtype == 3){
-						
-					}
+					$_SESSION['memtype'] = $memtype = $user->getMemtype();
+					header('Location: ../choose_subject.php');
 					
 				}else{
 					$user->updateRetries();
