@@ -23,5 +23,17 @@
 			';
 			return $alert;
 		}
+		
+		public static function loginFailedShowRetries($retries){
+			$alert = '
+				<div class = "alert alert-warning alert-dismissible" role = "alert">
+					<button type = "button" class = "close" data-dismiss = "alert" aria-label = "Close">
+						<span area-hidden = "true">&times;</span>
+					</button>
+					<strong>Login Failed.</strong> Please check your username and/or password ('.$retries.' retries left).
+				</div>
+			';
+			return $alert;
+		}
 	}
 ?>

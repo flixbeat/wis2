@@ -44,7 +44,7 @@
 
 		public function updateRetries(){
 			$success = false;
-			$sql = "UPDATE tbl_userlogins set retries = (retries-1) where id = $this->id";
+			$sql = "UPDATE tbl_userlogins set retries = retries-1 where user = $this->id";
 			$result = $this->con->query($sql);
 			if($result){
 				$success = true;
@@ -56,7 +56,7 @@
 
 		public function resetRetries(){
 			$success = false;
-			$sql = "UPDATE tbl_userlogins set retries = 5 where id = $this->id";
+			$sql = "UPDATE tbl_userlogins set retries = 5 where user = $this->id";
 			$result = $this->con->query($sql);
 			if($result){
 				$success = true;

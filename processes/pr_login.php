@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once('../classes/class_users.php');
+	require_once('../classes/class_alert.php');
 	# require_once('../includes/my_funcs.php');
 	if(isset($_POST['username']) & isset($_POST['password'])){
 		$user = new Users();
@@ -34,22 +35,19 @@
 					
 				}else{
 					$user->updateRetries();
-					echo 'login failed, check your password';
-					#$_SESSION['alert'] = errMsg(3).($user->retries-1)." retries remaining.";
-					#goLoginPage();
+					$_SESSION['alert'] = Alert::loginFailedShowRetries($user->retries-1);
+					header('Location: ../index.php');
 				}
 			}else{
-				echo 'account is locked';
-				#$_SESSION['alert'] = errMsg(1);
-				#goLoginPage();
+				$_SESSION['alert'] = Alert::accountLocked();
+				header('Location: ../index.php');
 			}
 		}else{
-			echo 'user does not exist';
-			#$_SESSION['alert'] = errMsg(2);
-			#goLoginPage();
+			$_SESSION['alert'] = Alert::loginFailed();
+			header('Location: ../index.php');
 		}
 	}else{
-		#goErrorPage();
+		
 	}
 	
 ?>
