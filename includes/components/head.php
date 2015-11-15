@@ -5,11 +5,6 @@
 	.wrapper{
 		margin-top: 80px;
 	}
-	@media (min-width: 1200px) {
-		.container{
-			max-width: 970px;
-		}
-	}
 </style>
 <title>Welcome</title>
 <meta charset = "utf-8">

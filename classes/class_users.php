@@ -103,21 +103,5 @@
 				$this->showError(3, 0);
 			}
 		}
-		
-		public function loadFacultyLoads(){
-			$qry = "SELECT u.id,sub_code,sub_name FROM tbl_subjects s 
-			INNER JOIN tbl_course_offerings co ON co.subject = s.id
-			INNER JOIN tbl_faculty_loads fl ON fl.offering = co.id
-			INNER JOIN tbl_users u ON u.id = fl.faculty
-			WHERE u.id = $this->id;
-			";
-			$res = $this->con->query($qry);
-			while($row = $res->fetch_assoc()){
-				$id = $row['id'];
-				$subCode = $row['sub_code'];
-				$subName = $row['sub_name'];
-				echo "<option value = \"$id\">$subCode | $subName</option>";
-			}
-		}
 	}
 ?>
