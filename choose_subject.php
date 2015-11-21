@@ -13,6 +13,15 @@
 				margin-top: 10%;
 			}
 		</style>
+		
+		<script>
+			$(document).change(function(){
+				var z = $('#con').val();
+				if(z=='') {
+					alert('Please select a user to edit');
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<div class = "wrapper container">
@@ -40,7 +49,7 @@
 										
 									}
 								?>
-								<input type = "hidden" name = "continue" value = "<?php echo $_SESSION['memtype']?>">
+								<input type = "hidden" name = "continue" id = "con" value = "<?php echo $_SESSION['memtype']?>">
 								<button class = "btn btn-default">Continue</button>
 							</form>
 						</div>
