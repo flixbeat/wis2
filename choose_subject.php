@@ -29,15 +29,15 @@
 								<?php
 									$memtype = $_SESSION['memtype'];
 									if($memtype==1){ # student
-										
+										require_once('classes/class_Student.php');
+										$student = new Student();
+										include_once('includes/functions/helper_load_student_subjects.php');
+
 									}
 									else if($memtype==2){ # faculty
 										require_once 'faculty/classes/class_faculty.php';
 										$faculty = new Faculty();
 										$faculty->loadFacultyLoads($_SESSION['userID']);
-									}
-									else if($memtype==3){ # admin
-										
 									}
 								?>
 								<input type = "hidden" name = "continue" value = "<?php echo $_SESSION['memtype']?>">

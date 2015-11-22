@@ -14,3 +14,11 @@
 * created loadFacultyLoad function in class_users.php to load subjects
 
 > dave
+
+##### Update 3
+*created student folder that contains all student views.
+*included bootstrap 3 for student views.
+*included dummy homepage for student.
+*working attendance without terminal host and ip. To follow na lng
+*class info can now be viewed. (For follow-up: lab and lec scheds)
+*updated class Students

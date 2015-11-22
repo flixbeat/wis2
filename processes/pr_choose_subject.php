@@ -5,7 +5,11 @@
 	if(isset($_POST['continue'])){
 		$memtype = $_POST['continue'];
 		if($memtype==1){
-		
+			require_once('../classes/class_student.php');
+			$student = new Student();
+			$_SESSION['subject'] = $_POST['subject'];
+			//$location = $student->check
+			header('location: ../student/student_home.php');
 		}
 		else if($memtype==2){
 			require_once('../faculty/classes/class_faculty.php');

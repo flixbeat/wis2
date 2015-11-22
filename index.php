@@ -34,7 +34,7 @@
 							<!-- the session will contain bootstrap alert, if login is not success-->
 							<?php 
 								echo isset($_SESSION['alert']) ? $_SESSION['alert']:null;
-								unset($_SESSION['alert'])
+								unset($_SESSION['alert']);
 							?>
 							<form action = "processes/pr_login.php" method = "post">
 								<div class = "form-group">

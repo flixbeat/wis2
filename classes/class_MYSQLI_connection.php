@@ -6,6 +6,7 @@
 		private $pwd;
 		private $db;
 		private $err;
+		public $conn;
 		public $con;
 
 		//public function connect($prHost="172.16.0.13", $prPort="3309", $prUser = "x", $prPass = "x@1234", $prDB = "wis_two"){
@@ -60,15 +61,16 @@
 		}
 
 		public function closeConnection(){
-			mysqli_close($this->conn);
+			mysqli_close($this->con);
 		}
 
 		public function __construct(){
+			//die("andito ako");
 			$this->connect();
 		}
 
 
-		Public function _destruct(){
+		Public function __destruct(){
 			$this->closeConnection();
 		}
 	}
