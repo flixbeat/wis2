@@ -8,7 +8,7 @@
 		
 		}
 		else if($memtype==2){
-			$_SESSION['subID'] = $_POST['rbFacLoad'];
+			$_SESSION['offID'] = $_POST['rbFacLoad'];
 			require_once('../faculty/classes/class_faculty.php');
 			$faculty = new Faculty();
 			# verify membership type, to avoid bypass

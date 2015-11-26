@@ -13,4 +13,11 @@
 * created choose_subject.php for student,faculty,admin
 * created loadFacultyLoad function in class_users.php to load subjects
 
+##### Update X
+* Database: 24 tables
+* create_quiz, input_score, create_activity UI added
+* grading term and SY is now visible
+* some minor modifications and bug fixes
+* class_alert.php created for faculty use 
+
 > dave
